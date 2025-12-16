@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { Header as HeaderRNE } from "@rneui/themed";
-
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 interface HeaderProps {
   museumName: string;
@@ -18,23 +10,21 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   museumName,
 }) => {
   return (
-    <SafeAreaProvider>
-      <HeaderRNE
-        leftComponent={
-          <View style={styles.headerRight}>
-            <Image
-              source={require("../assets/images/museum-logo.png")}
-              style={styles.image}
-            />
-          </View>
-        }
-        rightComponent={{
-          icon: "settings",
-          color: "#fff",
-        }}
-        centerComponent={{ text: museumName, style: styles.heading }}
-      />
-    </SafeAreaProvider>
+    <HeaderRNE
+      leftComponent={
+        <View style={styles.headerRight}>
+          <Image
+            source={require("../assets/images/museum-logo.png")}
+            style={styles.image}
+          />
+        </View>
+      }
+      rightComponent={{
+        icon: "settings",
+        color: "#fff",
+      }}
+      centerComponent={{ text: museumName, style: styles.heading }}
+    />
   );
 };
 
